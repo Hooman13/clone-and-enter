@@ -88,6 +88,7 @@ const createTaskInput = createTaskForm.querySelector("input");
 const createTaskButton = createTaskForm.querySelector("button");
 
 function createTaskHandler() {
+  // e.preventDefault();
   const value = createTaskInput.value;
   if (!value) {
     return;
@@ -95,5 +96,16 @@ function createTaskHandler() {
   createTask(value);
   createTaskInput.value = "";
 }
+
+let btn = document.querySelector("#btn");
+document.addEventListener('keypress', (event)=>{
+  if(event.key == 'Enter') {
+    event.preventDefault();
+    btn.click();
+  }
+    
+});
+
+
 
 createTaskButton.addEventListener("click", createTaskHandler);
